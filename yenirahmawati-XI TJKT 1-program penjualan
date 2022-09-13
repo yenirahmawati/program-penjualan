@@ -1,0 +1,43 @@
+<html>
+    <form action="ProgramPenjualan.php" method="POST">
+        <center>
+            <font size="8">
+                <b>Program penjualan<br>Eektronik
+                    <hr>
+                        <table>
+                            <tr><td>Nama Barang<td><select name="namabarang">
+                                <option>Handphone
+                                    <option>Laptop
+                                        <option>Printer
+                                            <tr><td>Jumlah<td><input name="Jumlah" size="1">
+                                          </table>
+                                          <hr>
+                                          <input type="submit" value="proses">
+                                          <input type="reset" value="reset">
+    </form>
+    <?php
+echo "<center>";
+echo "<font size=8>";
+echo "<b>Program Penjualan<br>Elektronik";
+echo "<hr>";
+echo "<table>";
+$namabarang=$_POST['namabarang'];
+$jumlah=$_POST['Jumlah'];
+if($namabarang=="Handphone")$harga=2000000;
+if($namabarang=="Laptop")$harga=5000000;
+if($namabarang=="Printer")$harga=1500000;
+$totalharga=$jumlah*$harga;
+$diskon=$totalharga*0.15;
+$totalbayar=$totalharga-$diskon;
+echo "<tr><td>Nama Barang<td>:$namabarang";
+echo "<tr><td>Harga<td>:";
+echo "Rp.".number_format($harga,2,',',',');
+echo "<tr><td>jumlah:$jumlah";
+echo "<tr><td colspan=3><hr>";
+echo "<tr><td>Total Harga<td>:";
+echo "Rp.".number_format($totalharga,2,',',',');
+echo "<tr><td>Diskon<td>:";
+echo "Rp.".number_format($diskon,2,',',',');
+echo "<tr><td>Total Bayar<td>:";
+echo "Rp.".number_format($totalbayar,2,',',',');
+?>
